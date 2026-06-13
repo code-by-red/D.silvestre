@@ -12,7 +12,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname)));
+
+// Servir arquivos estáticos do diretório public
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração do Google Sheets
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;
@@ -131,7 +133,7 @@ app.delete('/api/mural', async (req, res) => {
 
 // Servir arquivos estáticos
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Iniciar servidor
