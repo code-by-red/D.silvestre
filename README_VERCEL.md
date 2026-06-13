@@ -1,36 +1,33 @@
-# Configuração para Vercel
+# Configuracao para Vercel
 
-## � Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 homenagem d,silvestre/
-├── public/              # Arquivos estáticos (servidos pela Vercel)
-│   ├── index.html      # HTML principal
-│   ├── styles.css      # Estilos CSS
-│   └── script.js       # JavaScript do frontend
+├── index.html          # HTML principal
+├── styles.css          # Estilos CSS
+├── script.js           # JavaScript do frontend
 ├── server.js           # Backend Node.js (API)
-├── package.json        # Dependências
-├── vercel.json         # Configuração da Vercel
-├── .env                # Variáveis de ambiente (não enviado ao GitHub)
-└── .env.example        # Exemplo de variáveis de ambiente
+├── package.json        # Dependencias
+├── .env                # Variaveis de ambiente (nao enviado ao GitHub)
+└── .env.example        # Exemplo de variaveis de ambiente
 ```
 
-## � Deploy na Vercel
+## Deploy na Vercel
 
-### 1. Configurar Variáveis de Ambiente na Vercel
+### 1. Configurar Variaveis de Ambiente na Vercel
 
 1. Acesse seu projeto na Vercel: https://vercel.com/dashboard
-2. Vá em **Settings** > **Environment Variables**
-3. Adicione as seguintes variáveis:
+2. Va em Settings > Environment Variables
+3. Adicione as seguintes variaveis:
 
 #### GOOGLE_SHEET_ID
 - ID da sua planilha Google Sheets
-- Exemplo: `16l5ptYdLO_sH_aFujp3jLKF2n185d6OAPLNwW0hCbKs`
 
 #### GOOGLE_SERVICE_ACCOUNT
 - Credenciais JSON completa da Google Service Account
-- Copie todo o conteúdo JSON do arquivo de credenciais
-- **IMPORTANTE:** Use aspas duplas e escape as quebras de linha com `\n`
+- Copie todo o conteudo JSON do arquivo de credenciais
+- IMPORTANTE: Use aspas duplas e escape as quebras de linha com \n
 
 Exemplo de como formatar:
 ```
@@ -38,53 +35,51 @@ Exemplo de como formatar:
 ```
 
 #### PORT
-- Valor: `3000`
+- Valor: 3000
 
 ### 2. Redeploy
 
-Após configurar as variáveis de ambiente:
-1. Vá em **Deployments** no dashboard da Vercel
-2. Clique no botão **...** (três pontos) no deploy mais recente
-3. Selecione **Redeploy**
-
-**Nota:** Os arquivos estáticos agora estão no diretório `public/`, que é o padrão da Vercel. Isso resolve os problemas de MIME type.
+Apos configurar as variaveis de ambiente:
+1. Va em Deployments no dashboard da Vercel
+2. Clique no botao ... (tres pontos) no deploy mais recente
+3. Selecione Redeploy
 
 ### 3. Compartilhar Planilha com Service Account
 
-1. No Google Cloud Console, encontre o email da service account (campo `client_email` nas credenciais)
+1. No Google Cloud Console, encontre o email da service account (campo client_email nas credenciais)
 2. Acesse sua planilha Google Sheets
-3. Clique em **Compartilhar**
-4. Adicione o email da service account como **Editor**
+3. Clique em Compartilhar
+4. Adicione o email da service account como Editor
 
-### 4. Configurar Cabeçalhos da Planilha
+### 4. Configurar Cabecalhos da Planilha
 
-Na planilha Google Sheets, configure os cabeçalhos na **linha 1**:
-- **A1:** `nome`
-- **B1:** `cidade`
-- **C1:** `mensagem`
-- **D1:** `data`
+Na planilha Google Sheets, configure os cabecalhos na linha 1:
+- A1: nome
+- B1: cidade
+- C1: mensagem
+- D1: data
 
-## 🔧 Solução de Problemas
+## Solucao de Problemas
 
 ### Erro: MIME type 'text/html' para CSS/JS
-- Isso foi corrigido no `server.js` com configuração de MIME types
-- Faça um redeploy após atualizar o código
+- Isso foi corrigido no server.js com configuracao de MIME types
+- Faca um redeploy apos atualizar o codigo
 
 ### Erro: submitComment is not defined
-- Verifique se o `script.js` está sendo carregado corretamente
+- Verifique se o script.js esta sendo carregado corretamente
 - Abra o console do navegador (F12) para ver erros
 
-### Erro: Variáveis de ambiente não funcionando
-- Verifique se as variáveis estão configuradas na Vercel
-- Confirme que os nomes estão exatamente como: `GOOGLE_SHEET_ID`, `GOOGLE_SERVICE_ACCOUNT`, `PORT`
+### Erro: Variaveis de ambiente nao funcionando
+- Verifique se as variaveis estao configuradas na Vercel
+- Confirme que os nomes estao exatamente como: GOOGLE_SHEET_ID, GOOGLE_SERVICE_ACCOUNT, PORT
 
-### Erro: Permissão negada no Google Sheets
-- Verifique se a planilha está compartilhada com a service account
-- Confirme que a service account tem permissão de Editor
+### Erro: Permissao negada no Google Sheets
+- Verifique se a planilha esta compartilhada com a service account
+- Confirme que a service account tem permissao de Editor
 
-## 📝 Notas
+## Notas
 
-- O projeto usa `vercel.json` para configurar o build
-- Arquivos estáticos são servidos pelo Express com MIME types corretos
-- O `.env` não é enviado ao GitHub (protegido pelo `.gitignore`)
-- Use `.env.example` como referência para variáveis necessárias
+- O projeto usa deteccao automatica da Vercel para Node.js
+- Arquivos estaticos sao servidos pelo Express
+- O .env nao e enviado ao GitHub (protegido pelo .gitignore)
+- Use .env.example como referencia para variaveis necessarias
