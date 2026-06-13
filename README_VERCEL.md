@@ -1,6 +1,21 @@
 # Configuração para Vercel
 
-## 🚀 Deploy na Vercel
+## � Estrutura do Projeto
+
+```
+homenagem d,silvestre/
+├── public/              # Arquivos estáticos (servidos pela Vercel)
+│   ├── index.html      # HTML principal
+│   ├── styles.css      # Estilos CSS
+│   └── script.js       # JavaScript do frontend
+├── server.js           # Backend Node.js (API)
+├── package.json        # Dependências
+├── vercel.json         # Configuração da Vercel
+├── .env                # Variáveis de ambiente (não enviado ao GitHub)
+└── .env.example        # Exemplo de variáveis de ambiente
+```
+
+## � Deploy na Vercel
 
 ### 1. Configurar Variáveis de Ambiente na Vercel
 
@@ -31,6 +46,8 @@ Após configurar as variáveis de ambiente:
 1. Vá em **Deployments** no dashboard da Vercel
 2. Clique no botão **...** (três pontos) no deploy mais recente
 3. Selecione **Redeploy**
+
+**Nota:** Os arquivos estáticos agora estão no diretório `public/`, que é o padrão da Vercel. Isso resolve os problemas de MIME type.
 
 ### 3. Compartilhar Planilha com Service Account
 
