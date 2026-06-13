@@ -63,7 +63,6 @@
                 <a href="#albuns" class="text-gray-400 hover:text-white transition-colors">DISCOGRAFIA REAL</a>
                 <a href="#sobre" class="text-gray-400 hover:text-white transition-colors">HISTÓRIA</a>
                 <a href="#sets" class="text-gray-400 hover:text-white transition-colors">SETS & CABINES</a>
-                <a href="#mural" class="text-gray-400 hover:text-white transition-colors">MURAL DO FLUXO</a>
             </nav>
 
             <!-- Social Links -->
@@ -674,58 +673,6 @@
                     </div>
                     <div class="flex items-center gap-4 w-full md:w-auto">
                         <span class="text-xs font-mono text-zinc-500">Histórico de Performance</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- MURAL DO FLUXO (GUESTBOOK) -->
-    <section id="mural" class="py-24 border-t border-zinc-900 bg-cyber-dark relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- Left: Form -->
-                <div class="lg:col-span-5 bg-zinc-950 border border-zinc-850 rounded-2xl p-6 sm:p-8 neon-glow-purple">
-                    <span class="text-xs font-bold uppercase tracking-widest text-cyber-acid font-mono">COMUNIDADE</span>
-                    <h3 class="text-3xl font-display font-extrabold text-white mt-1">MURAL DO FLUXO</h3>
-                    <p class="text-gray-400 text-sm mt-3 font-light leading-relaxed">
-                        Deixe o seu salve diretamente no painel oficial da comunidade d.silvestre. Compartilhe sua cidade, seu vulgo e apoie a cena de funk de desconstruído! Seu recado é salvo em tempo real.
-                    </p>
-
-                    <form id="comment-form" onsubmit="submitComment(event)" class="mt-8 space-y-4">
-                        <div>
-                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-name">Nome ou Vulgo</label>
-                            <input type="text" id="form-name" required placeholder="Ex: DJ Blakes, Caio Prince ou Cria de SP" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-city">Sua Cidade / Estado</label>
-                            <input type="text" id="form-city" required placeholder="Ex: São Paulo - SP ou Pimenta Bueno - RO" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-msg">Mensagem / Salve</label>
-                            <textarea id="form-msg" rows="3" required placeholder="Manda sua opinião sobre os beats do d.silvestre..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyber-acid to-cyber-purple text-black font-extrabold rounded-full hover:scale-[1.02] transition-transform tracking-wider uppercase text-xs">
-                            ENVIAR NO MURAL
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Right: Messages Container -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-lg font-display font-extrabold text-white flex items-center space-x-2 uppercase">
-                            <span class="w-2.5 h-2.5 rounded-full bg-cyber-pink animate-pulse"></span>
-                            <span>MENSAGENS DO UNDERGROUND</span>
-                        </h4>
-                        <button onclick="clearGuestbook()" class="text-xs font-mono text-zinc-500 hover:text-red-500 transition-colors">Limpar Histórico</button>
-                    </div>
-
-                    <!-- Scroll Container for comments -->
-                    <div id="mural-container" class="space-y-4 max-h-[480px] overflow-y-auto pr-2">
-                        <!-- Stored comments render here -->
                     </div>
                 </div>
 
