@@ -4,10 +4,9 @@
 
 ```
 homenagem d,silvestre/
-├── public/              # Arquivos estáticos
-│   ├── index.html      # HTML principal
-│   ├── styles.css      # Estilos CSS
-│   └── script.js       # JavaScript do frontend
+├── index.html          # HTML principal
+├── styles.css          # Estilos CSS
+├── script.js           # JavaScript do frontend
 ├── server.js           # Backend Node.js
 ├── package.json        # Dependências do Node.js
 ├── .env                # Variáveis de ambiente (credenciais)
