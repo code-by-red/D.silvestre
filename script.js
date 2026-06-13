@@ -1,5 +1,5 @@
 // Configuração da API do backend
-const API_URL = "http://localhost:3000/api/mural";
+const API_URL = "/api/mural";
 
 // Comentários padrão
 const defaultComments = [
