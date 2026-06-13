@@ -2,6 +2,7 @@
   "name": "dsilvestre-mural",
   "version": "1.0.0",
   "description": "Backend para mural d.silvestre com Google Sheets",
+  "type": "module",
   "scripts": {},
   "keywords": [],
   "author": "",

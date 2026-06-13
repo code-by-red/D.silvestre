@@ -1,4 +1,4 @@
-const { google } = require('googleapis');
+import { google } from 'googleapis';
 
 // Configuração do Google Sheets
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;
