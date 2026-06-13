@@ -7,7 +7,8 @@ homenagem d,silvestre/
 ├── index.html          # HTML principal
 ├── styles.css          # Estilos CSS
 ├── script.js           # JavaScript do frontend
-├── server.js           # Backend Node.js (API)
+├── api/                # Serverless functions da Vercel
+│   └── mural.js        # API do mural
 ├── package.json        # Dependencias
 ├── .env                # Variaveis de ambiente (nao enviado ao GitHub)
 └── .env.example        # Exemplo de variaveis de ambiente
@@ -79,7 +80,8 @@ Na planilha Google Sheets, configure os cabecalhos na linha 1:
 
 ## Notas
 
-- O projeto usa deteccao automatica da Vercel para Node.js
-- Arquivos estaticos sao servidos pelo Express
+- O projeto usa serverless functions da Vercel no diretorio api/
+- Arquivos estaticos sao servidos automaticamente pela Vercel
+- A API fica em /api/mural (GET, POST, DELETE)
 - O .env nao e enviado ao GitHub (protegido pelo .gitignore)
 - Use .env.example como referencia para variaveis necessarias
