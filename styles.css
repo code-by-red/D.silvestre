@@ -1,0 +1,27 @@
+/* Tailwind CSS será carregado via CDN no HTML */
+
+/* Custom Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050508;
+}
+::-webkit-scrollbar-thumb {
+    background: #1a1a24;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+.neon-glow-purple {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+}
+.noise-bg {
+    background-image: radial-gradient(rgba(255,255,255,0.015) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+/* Album Vinyl Sliding Animation */
+.vinyl-container:hover .vinyl-disk {
+    transform: translateX(45%) rotate(180deg);
+}

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d.silvestre | Portal Oficial</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk for technical feel, Syne for aggressive headers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            black: '#050508',
+                            dark: '#0a0a0f',
+                            purple: '#7c3aed',
+                            pink: '#db2777',
+                            acid: '#c0ff00',
+                            neonBlue: '#00f0ff',
+                            card: '#12121a'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 20s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cyber-black text-gray-100 font-sans selection:bg-cyber-acid selection:text-black overflow-x-hidden noise-bg">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 w-full z-50 bg-cyber-black/90 backdrop-blur-md border-b border-zinc-900/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-display font-extrabold tracking-wider text-white group-hover:text-cyber-acid transition-colors">
+                    d.silvestre<span class="text-cyber-acid">.</span>
+                </span>
+                <span class="hidden sm:inline-block bg-zinc-900 text-[10px] text-cyber-acid font-mono px-3 py-1 rounded-full uppercase tracking-widest border border-cyber-acid/20">
+                    Pimenta Bueno > SP
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest">
+                <a href="#home" class="text-gray-400 hover:text-white transition-colors">INÍCIO</a>
+                <a href="#albuns" class="text-gray-400 hover:text-white transition-colors">DISCOGRAFIA REAL</a>
+                <a href="#sobre" class="text-gray-400 hover:text-white transition-colors">HISTÓRIA</a>
+                <a href="#sets" class="text-gray-400 hover:text-white transition-colors">SETS & CABINES</a>
+                <a href="#mural" class="text-gray-400 hover:text-white transition-colors">MURAL DO FLUXO</a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="https://open.spotify.com/artist/3K2z7E28EovrYgQ4TOnj5J" target="_blank" class="text-zinc-400 hover:text-cyber-acid transition-colors text-xl" title="Spotify Oficial">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://www.instagram.com/d.silvestre7/" target="_blank" class="text-zinc-400 hover:text-cyber-pink transition-colors text-xl" title="Instagram Oficial">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://soundcloud.com/douglas-silvestre-283592182" target="_blank" class="text-zinc-400 hover:text-orange-500 transition-colors text-xl" title="Soundcloud">
+                    <i class="fab fa-soundcloud"></i>
+                </a>
+                <a href="#albuns" class="bg-cyber-acid text-black font-extrabold text-xs px-5 py-2.5 rounded-full hover:bg-white transition-all duration-300 tracking-wider">
+                    EXPLORAR ÁLBUNS
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-md">
+                <i class="fas fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-dark border-b border-zinc-900 px-4 py-6 space-y-4">
+            <a href="#home" class="block text-gray-300 hover:text-cyber-acid text-lg font-medium">INÍCIO</a>
+            <a href="#albuns" class="block text-gray-300 hover:text-cyber-acid text-lg font-medium">DISCOGRAFIA REAL</a>
+            <a href="#sobre" class="block text-gray-300 hover:text-cyber-acid text-lg font-medium">HISTÓRIA</a>
+            <a href="#sets" class="block text-gray-300 hover:text-cyber-acid text-lg font-medium">SETS & CABINES</a>
+            <a href="#mural" class="block text-gray-300 hover:text-cyber-acid text-lg font-medium">MURAL DO FLUXO</a>
+            <div class="pt-4 border-t border-zinc-900 flex space-x-6">
+                <a href="https://open.spotify.com/artist/3K2z7E28EovrYgQ4TOnj5J" target="_blank" class="text-gray-400 hover:text-cyber-acid text-xl"><i class="fab fa-spotify"></i></a>
+                <a href="https://www.instagram.com/d.silvestre7/" target="_blank" class="text-gray-400 hover:text-cyber-pink text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://soundcloud.com/douglas-silvestre-283592182" target="_blank" class="text-gray-400 hover:text-orange-500 text-xl"><i class="fab fa-soundcloud"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 md:py-40 flex items-center min-h-screen overflow-hidden">
+        <!-- Ambient Background Lights -->
+        <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyber-purple/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] bg-cyber-pink/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyber-acid/5 rounded-full blur-[180px] pointer-events-none"></div>
+
+        <!-- Cyber Grid Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#161622_1px,transparent_1px),linear-gradient(to_bottom,#161622_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] opacity-30 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-full text-xs font-semibold text-gray-300">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyber-acid animate-pulse"></span>
+                        <span>FUNK BRASILEIRO DESCONSTRUÍDO / BRUXARIA</span>
+                    </div>
+
+                    <h1 class="text-5xl sm:text-7xl xl:text-8xl font-display font-extrabold tracking-tighter leading-none text-white uppercase">
+                        d.silvestre<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-acid via-cyber-purple to-cyber-pink">
+                            SUBMUNDO 808
+                        </span>
+                    </h1>
+
+                    <p class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Douglas Silvestre é uma das mentes mais brilhantes e disruptivas do funk experimental paulista. Fundindo minimalismo cru, graves industriais e ritmos desconstrutivos, ele conquistou aclamação internacional da revista nova-iorquina <span class="text-white font-medium">The Fader</span> e do portal de crítica <span class="text-white font-medium">Rate Your Music (RYM)</span>.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#albuns" class="w-full sm:w-auto px-8 py-4 bg-cyber-acid text-black font-extrabold rounded-full hover:bg-white hover:scale-105 transition-all duration-300 tracking-wider text-center flex items-center justify-center space-x-2 shadow-lg shadow-cyber-acid/10">
+                            <i class="fas fa-compact-disc"></i>
+                            <span>VER ARTES DOS ÁLBUNS</span>
+                        </a>
+                        <a href="#sobre" class="w-full sm:w-auto px-8 py-4 bg-zinc-900 text-white font-bold border border-zinc-800 rounded-full hover:bg-zinc-800 hover:border-gray-500 transition-all duration-300 text-center flex items-center justify-center space-x-2">
+                            <span>BIOGRAFIA & MARCOS</span>
+                        </a>
+                    </div>
+
+                    <!-- Verified Statistics Bar -->
+                    <div class="flex items-center justify-center lg:justify-start space-x-8 pt-8 border-t border-zinc-900 mt-8 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-white">20M+</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Streams Acumulados</p>
+                        </div>
+                        <div class="h-8 w-px bg-zinc-800"></div>
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-white">20</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Anos de Idade no Estouro</p>
+                        </div>
+                        <div class="h-8 w-px bg-zinc-800"></div>
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-white">RO</p>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Pimenta Bueno Origem</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Gorgeous Physical Press Card -->
+                <div class="lg:col-span-5 flex justify-center items-center">
+                    <div class="relative w-80 h-[450px] group">
+                        <!-- Outer neon spinning aura -->
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-cyber-acid via-cyber-purple to-cyber-pink opacity-25 blur-2xl group-hover:opacity-40 transition-all duration-500"></div>
+                        
+                        <!-- Main Frame simulating a professional physical EP/Press Cover -->
+                        <div class="relative w-full h-full bg-[#0d0d15] border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between shadow-2xl overflow-hidden">
+                            <!-- Textured photo container with placeholder -->
+                            <div class="relative flex-grow rounded-xl overflow-hidden bg-zinc-950 flex items-center justify-center border border-zinc-900">
+                                <div class="absolute inset-0 opacity-75 bg-cover bg-center" style="background-image: url('https://placehold.co/600x800/101018/22ec4899?text=d.silvestre');"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                                
+                                <!-- Decorative SVG Waveform -->
+                                <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between h-10 px-2">
+                                    <span class="w-1 bg-cyber-pink h-8 animate-pulse-slow"></span>
+                                    <span class="w-1 bg-cyber-purple h-5"></span>
+                                    <span class="w-1 bg-cyber-acid h-7 animate-pulse"></span>
+                                    <span class="w-1 bg-cyber-neonBlue h-4"></span>
+                                    <span class="w-1 bg-cyber-acid h-6 animate-pulse-slow"></span>
+                                    <span class="w-1 bg-cyber-pink h-3"></span>
+                                    <span class="w-1 bg-cyber-purple h-8 animate-pulse"></span>
+                                </div>
+                            </div>
+
+                            <!-- Footer info of card -->
+                            <div class="pt-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs font-mono text-cyber-acid">OFFICIAL PRESS CARD</p>
+                                    <h4 class="font-display font-extrabold text-white text-lg">Douglas Silvestre</h4>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[9px] font-mono text-gray-500">GÊNERO</p>
+                                    <p class="text-xs font-mono text-white">ELECTRO-FUNK</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Tech Labels -->
+                        <div class="absolute -top-4 -left-4 bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full text-[10px] font-mono shadow-xl flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-cyber-acid animate-ping"></span>
+                            <span class="text-zinc-300">RYM APPROVED</span>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full text-[10px] font-mono shadow-xl flex items-center space-x-2">
+                            <span class="text-cyber-pink font-bold">THE FADER FEATURED</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL DISCOGRAPHY / ALBUM ART SHOWCASE -->
+    <section id="albuns" class="py-24 border-t border-zinc-900 bg-cyber-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyber-acid font-mono">LANÇAMENTOS REAIS & OFICIAIS</span>
+                <h2 class="text-4xl sm:text-5xl font-display font-extrabold text-white mt-2">DISCOGRAFIA HISTÓRICA</h2>
+                <p class="text-gray-400 mt-4 font-light">
+                    Explore os trabalhos que redefiniram as texturas do funk periférico. Sem dados fictícios. Passe o mouse para deslizar o vinil e clique para ver a tracklist original de cada obra.
+                </p>
+            </div>
+
+            <!-- Vinyl Sliding Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                
+                <!-- Album 1: O Que as Mulheres Querem (2025) -->
+                <div class="bg-cyber-card/50 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-cyber-acid transition-all duration-300 relative group">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                        <!-- Vinyl Interactive Visual -->
+                        <div class="sm:col-span-6 relative flex justify-center items-center py-6">
+                            <div class="vinyl-container relative w-48 h-48 sm:w-44 sm:h-44 md:w-48 md:h-48 cursor-pointer">
+                                <!-- Vinyl disk that slides out -->
+                                <div class="vinyl-disk absolute inset-1 bg-[#121212] rounded-full border-4 border-zinc-800 flex items-center justify-center transition-transform duration-700 ease-out z-0 shadow-lg">
+                                    <div class="w-16 h-16 rounded-full bg-cyber-acid/80 border border-zinc-900 flex items-center justify-center relative">
+                                        <div class="w-4 h-4 bg-cyber-black rounded-full"></div>
+                                    </div>
+                                    <div class="absolute inset-4 rounded-full border border-zinc-800/20"></div>
+                                    <div class="absolute inset-8 rounded-full border border-zinc-800/30"></div>
+                                    <div class="absolute inset-12 rounded-full border border-zinc-800/40"></div>
+                                </div>
+                                <!-- Cover Jacket -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 to-zinc-900 border border-zinc-800/80 rounded-xl overflow-hidden flex flex-col justify-between p-4 z-10 shadow-xl group-hover:shadow-cyber-acid/10 transition-shadow">
+                                    <div class="flex justify-between items-start">
+                                        <span class="text-[9px] font-mono bg-cyber-acid text-black px-2 py-0.5 rounded font-bold">LP (2025)</span>
+                                        <i class="fab fa-spotify text-zinc-500 text-lg"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[9px] font-mono text-cyber-acid font-bold">SUBMUNDO 808</p>
+                                        <h4 class="text-base font-display font-extrabold text-white leading-none">O QUE AS MULHERES QUEREM</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track list details -->
+                        <div class="sm:col-span-6 space-y-4">
+                            <div>
+                                <span class="text-[10px] font-mono text-gray-500">ÁLBUM OFICIAL (2025)</span>
+                                <h3 class="text-xl font-display font-extrabold text-white mt-1">O Que as Mulheres Querem</h3>
+                            </div>
+                            <ul class="space-y-2 text-xs font-mono text-gray-400">
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>Sem Moralismo</span>
+                                    <span class="text-cyber-acid">Destaque</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>Corredinois</span>
+                                    <span class="text-cyber-acid">Destaque</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>Olha o Tamanho Dessa Onda</span>
+                                    <span class="text-cyber-acid">Popular</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2 flex space-x-3">
+                                <a href="https://open.spotify.com/album/4vK7rNOnHkGfV7943r2R9I" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-[10px] font-bold tracking-widest uppercase flex items-center space-x-2 border border-zinc-800">
+                                    <i class="fab fa-spotify text-green-400"></i>
+                                    <span>SPOTIFY</span>
+                                </a>
+                                <button onclick="showAlbumModal('O Que as Mulheres Querem (2025)', ['Sem Moralismo', 'Corredinois', 'A Sacanagem Começou', 'Olha o Tamanho Dessa Onda', 'Ela Trava'])" class="px-4 py-2 bg-cyber-acid text-black hover:bg-white rounded-lg text-[10px] font-extrabold tracking-widest uppercase">
+                                    VER TRACKLIST
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 2: D.Silvestre (Self-Titled - 2024) -->
+                <div class="bg-cyber-card/50 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-cyber-pink transition-all duration-300 relative group">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                        <!-- Vinyl Interactive Visual -->
+                        <div class="sm:col-span-6 relative flex justify-center items-center py-6">
+                            <div class="vinyl-container relative w-48 h-48 sm:w-44 sm:h-44 md:w-48 md:h-48 cursor-pointer">
+                                <!-- Vinyl disk that slides out -->
+                                <div class="vinyl-disk absolute inset-1 bg-[#121212] rounded-full border-4 border-zinc-800 flex items-center justify-center transition-transform duration-700 ease-out z-0 shadow-lg">
+                                    <div class="w-16 h-16 rounded-full bg-cyber-pink/80 border border-zinc-900 flex items-center justify-center relative">
+                                        <div class="w-4 h-4 bg-cyber-black rounded-full"></div>
+                                    </div>
+                                    <div class="absolute inset-4 rounded-full border border-zinc-800/20"></div>
+                                    <div class="absolute inset-8 rounded-full border border-zinc-800/30"></div>
+                                    <div class="absolute inset-12 rounded-full border border-zinc-800/40"></div>
+                                </div>
+                                <!-- Cover Jacket -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 to-zinc-900 border border-zinc-800/80 rounded-xl overflow-hidden flex flex-col justify-between p-4 z-10 shadow-xl group-hover:shadow-cyber-pink/10 transition-shadow">
+                                    <div class="flex justify-between items-start">
+                                        <span class="text-[9px] font-mono bg-cyber-pink text-white px-2 py-0.5 rounded font-bold">LP (2024)</span>
+                                        <i class="fab fa-spotify text-zinc-500 text-lg"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[9px] font-mono text-cyber-pink font-bold">ESTREIA IMPACTANTE</p>
+                                        <h4 class="text-base font-display font-extrabold text-white leading-none">D.SILVESTRE (ALBUM)</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track list details -->
+                        <div class="sm:col-span-6 space-y-4">
+                            <div>
+                                <span class="text-[10px] font-mono text-gray-500">ÁLBUM HOMÔNIMO (2024)</span>
+                                <h3 class="text-xl font-display font-extrabold text-white mt-1">D.Silvestre</h3>
+                            </div>
+                            <ul class="space-y-2 text-xs font-mono text-gray-400">
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>Beat Matemático</span>
+                                    <span class="text-cyber-pink">Destaque</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>Bolhas Makiavélicas</span>
+                                    <span class="text-cyber-pink">Experimental</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900/80 pb-1">
+                                    <span>157 X Terremoto</span>
+                                    <span class="text-cyber-pink">Popular</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2 flex space-x-3">
+                                <a href="https://open.spotify.com/album/43vQby7wKshCWhO7b8iM0Q" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-[10px] font-bold tracking-widest uppercase flex items-center space-x-2 border border-zinc-800">
+                                    <i class="fab fa-spotify text-green-400"></i>
+                                    <span>SPOTIFY</span>
+                                </a>
+                                <button onclick="showAlbumModal('D.Silvestre (Álbum - 2024)', ['157 X Terremoto (feat. MC PR, MC Renatinho Falcão)', 'Beat Matemático (feat. MC Zudo Boladão, Mc DDSV)', 'Bolhas Makiavélicas (feat. MC Lele 011)', 'Mal Criado', 'Turco Avançado', 'Montagem Da Silva', 'B D Z S', 'Xeque Mate', '2 Beat Noia (Muito Emocionante)', 'Q Se F0Da O Crack'])" class="px-4 py-2 bg-cyber-pink text-white hover:bg-white hover:text-black rounded-lg text-[10px] font-extrabold tracking-widest uppercase">
+                                    VER TRACKLIST
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 3: O Inimigo Agora É Outro, Vol. 2 -->
+                <div class="bg-cyber-card/50 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-cyber-neonBlue transition-all duration-300 relative group">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                        <!-- Vinyl Interactive Visual -->
+                        <div class="sm:col-span-6 relative flex justify-center items-center py-6">
+                            <div class="vinyl-container relative w-48 h-48 sm:w-44 sm:h-44 md:w-48 md:h-48 cursor-pointer">
+                                <!-- Vinyl disk that slides out -->
+                                <div class="vinyl-disk absolute inset-1 bg-[#121212] rounded-full border-4 border-zinc-800 flex items-center justify-center transition-transform duration-700 ease-out z-0 shadow-lg">
+                                    <div class="w-16 h-16 rounded-full bg-cyber-neonBlue/80 border border-zinc-900 flex items-center justify-center relative">
+                                        <div class="w-4 h-4 bg-cyber-black rounded-full"></div>
+                                    </div>
+                                    <div class="absolute inset-4 rounded-full border border-zinc-800/20"></div>
+                                    <div class="absolute inset-8 rounded-full border border-zinc-800/30"></div>
+                                    <div class="absolute inset-12 rounded-full border border-zinc-800/40"></div>
+                                </div>
+                                <!-- Cover Jacket -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 to-zinc-900 border border-zinc-800/80 rounded-xl overflow-hidden flex flex-col justify-between p-4 z-10 shadow-xl group-hover:shadow-cyber-neonBlue/10 transition-shadow">
+                                    <div class="flex justify-between items-start">
+                                        <span class="text-[9px] font-mono bg-cyber-neonBlue text-black px-2 py-0.5 rounded font-bold">EP</span>
+                                        <i class="fab fa-spotify text-zinc-500 text-lg"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[9px] font-mono text-cyber-neonBlue font-bold">DECONSTRUCTED BASS</p>
+                                        <h4 class="text-base font-display font-extrabold text-white leading-none">O INIMIGO AGORA É OUTRO</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track list details -->
+                        <div class="sm:col-span-6 space-y-4">
+                            <div>
+                                <span class="text-[10px] font-mono text-gray-500">VOL. 2 DESTAQUES</span>
+                                <h3 class="text-xl font-display font-extrabold text-white mt-1">O Inimigo Agora É Outro</h3>
+                            </div>
+                            <ul class="space-y-2 text-xs font-mono text-gray-400">
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Onlyfans (feat. Bibi Babydoll)</span>
+                                    <span class="text-cyber-neonBlue">Viral</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Distorção SP</span>
+                                    <span class="text-cyber-neonBlue">Pesado</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Freq. Proibida</span>
+                                    <span class="text-cyber-neonBlue">Sub Graves</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2 flex space-x-3">
+                                <a href="https://open.spotify.com/artist/3K2z7E28EovrYgQ4TOnj5J" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-[10px] font-bold tracking-widest uppercase flex items-center space-x-2 border border-zinc-800">
+                                    <i class="fab fa-spotify text-green-400"></i>
+                                    <span>VER ARTISTA</span>
+                                </a>
+                                <button onclick="showAlbumModal('O Inimigo Agora É Outro, Vol. 2', ['Onlyfans (with Bibi Babydoll)', 'Distorção SP', 'Freq. Proibida', 'Onlyfans X Fogosa'])" class="px-4 py-2 bg-cyber-neonBlue text-black hover:bg-white rounded-lg text-[10px] font-extrabold tracking-widest uppercase">
+                                    VER TRACKLIST
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 4: Outros Lançamentos Fidedignos -->
+                <div class="bg-cyber-card/50 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-cyber-purple transition-all duration-300 relative group">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                        <!-- Vinyl Interactive Visual -->
+                        <div class="sm:col-span-6 relative flex justify-center items-center py-6">
+                            <div class="vinyl-container relative w-48 h-48 sm:w-44 sm:h-44 md:w-48 md:h-48 cursor-pointer">
+                                <!-- Vinyl disk that slides out -->
+                                <div class="vinyl-disk absolute inset-1 bg-[#121212] rounded-full border-4 border-zinc-800 flex items-center justify-center transition-transform duration-700 ease-out z-0 shadow-lg">
+                                    <div class="w-16 h-16 rounded-full bg-cyber-purple/80 border border-zinc-900 flex items-center justify-center relative">
+                                        <div class="w-4 h-4 bg-cyber-black rounded-full"></div>
+                                    </div>
+                                    <div class="absolute inset-4 rounded-full border border-zinc-800/20"></div>
+                                    <div class="absolute inset-8 rounded-full border border-zinc-800/30"></div>
+                                    <div class="absolute inset-12 rounded-full border border-zinc-800/40"></div>
+                                </div>
+                                <!-- Cover Jacket -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 to-zinc-900 border border-zinc-800/80 rounded-xl overflow-hidden flex flex-col justify-between p-4 z-10 shadow-xl group-hover:shadow-cyber-purple/10 transition-shadow">
+                                    <div class="flex justify-between items-start">
+                                        <span class="text-[9px] font-mono bg-cyber-purple text-white px-2 py-0.5 rounded font-bold">PRODUÇÕES</span>
+                                        <i class="fab fa-soundcloud text-zinc-500 text-lg"></i>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[9px] font-mono text-cyber-purple font-bold">SINGLES & COLABS</p>
+                                        <h4 class="text-base font-display font-extrabold text-white leading-none">ESTÉTICA BRUXARIA SP</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track list details -->
+                        <div class="sm:col-span-6 space-y-4">
+                            <div>
+                                <span class="text-[10px] font-mono text-gray-500">PARCERIAS REAIS</span>
+                                <h3 class="text-xl font-display font-extrabold text-white mt-1">Colaborações Clássicas</h3>
+                            </div>
+                            <ul class="space-y-2 text-xs font-mono text-gray-400">
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Mata Rato do Casarão 1.0</span>
+                                    <span class="text-cyber-purple">MC DENADAI</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Sente a Magia</span>
+                                    <span class="text-cyber-purple">Mu540</span>
+                                </li>
+                                <li class="flex justify-between border-b border-zinc-900 pb-1">
+                                    <span>Melaço</span>
+                                    <span class="text-cyber-purple">Bia Soull</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2 flex space-x-3">
+                                <a href="https://soundcloud.com/douglas-silvestre-283592182" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-[10px] font-bold tracking-widest uppercase flex items-center space-x-2 border border-zinc-800">
+                                    <i class="fab fa-soundcloud text-orange-500"></i>
+                                    <span>SOUNDCLOUND</span>
+                                </a>
+                                <button onclick="showAlbumModal('Singles & Parcerias Fidedignas', ['Mata Rato do Casarão 1.0 (with MC DENADAI)', 'Sente a Magia (with Mu540, DJ Caio Prince, Dj Thiago Martins)', 'Melaço (with Bia Soull)', 'Vcs Tão Acabando Com o Funk (with MC du Red)', 'Art.69 (with MC DENADAI)'])" class="px-4 py-2 bg-cyber-purple text-white hover:bg-white hover:text-black rounded-lg text-[10px] font-extrabold tracking-widest uppercase">
+                                    VER TRACKS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL CONCEPT / STATS SECTION -->
+    <section id="conceito" class="py-24 border-t border-zinc-900 bg-cyber-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-cyber-pink font-mono">ESTÉTICA COMPACTA</span>
+                <h2 class="text-4xl sm:text-5xl font-display font-extrabold text-white mt-2">DADOS DE REPERCUSSÃO</h2>
+                <p class="text-gray-400 mt-4 font-light">
+                    O trabalho de d.silvestre transcende as pistas brasileiras e virou objeto de crítica especializada global pela sua abordagem despida de excessos.
+                </p>
+            </div>
+
+            <!-- Beautiful Real Cards Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Concept Card 1: Rate Your Music (RYM) -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-cyber-acid/50 transition-colors duration-500 group p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-cyber-acid text-black font-mono font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">Aclamação Crítica</span>
+                        <i class="fas fa-star text-cyber-acid"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-extrabold text-white">Pontuação Alta no RYM</h4>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">
+                        Seus álbuns possuem revisões extremamente positivas na maior plataforma internacional de classificação musical independente (Rate Your Music), destacando-o de fórmulas comuns do mercado de funk.
+                    </p>
+                </div>
+
+                <!-- Concept Card 2: The Fader -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-cyber-purple/50 transition-colors duration-500 group p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-cyber-purple text-white font-mono font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">Destaque Internacional</span>
+                        <i class="fas fa-globe text-cyber-purple"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-extrabold text-white">Capa na The Fader</h4>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">
+                        A revista nova-iorquina de tendências globais <span class="text-white">The Fader</span> apontou d.silvestre como um dos jovens talentos mais impactantes da redefinição estrutural do funk brasileiro.
+                    </p>
+                </div>
+
+                <!-- Concept Card 3: Estética do Baixo Distorcido -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-cyber-pink/50 transition-colors duration-500 group p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-cyber-pink text-white font-mono font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">Técnica Sonora</span>
+                        <i class="fas fa-sliders-h text-cyber-pink"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-extrabold text-white">Minimalismo Cru</h4>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">
+                        Seus arranjos abrem mão de acapellas óbvias em prol de timbres metálicos de bumbo, cowbells de phonk, e pausas cirúrgicas carregadas de suspense e sensualidade elegante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIOGRAPHY / ABOUT SECTION (100% REAL) -->
+    <section id="sobre" class="py-24 border-t border-zinc-900 bg-cyber-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Artistic Polaroid Frame -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="relative bg-zinc-950 border border-zinc-800 rounded-2xl p-4 shadow-xl">
+                        <div class="relative overflow-hidden rounded-xl aspect-[4/5] bg-zinc-900 flex items-center justify-center">
+                            <!-- Visual placeholder representing Douglas in São Paulo -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-zinc-950/70 to-transparent flex flex-col justify-end p-6 z-10">
+                                <h4 class="text-xl font-display font-extrabold text-white uppercase">DOUGLAS SILVESTRE SILVA</h4>
+                                <p class="text-xs text-cyber-acid font-mono font-bold mt-1">PIMENTA BUENO, RO > SÃO PAULO, SP</p>
+                            </div>
+                            <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://placehold.co/600x800/11111a/ffffff?text=d.silvestre');"></div>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-cyber-purple/10 via-transparent to-cyber-pink/10 z-0"></div>
+                            <div class="w-full h-full border border-zinc-800/60 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-compact-disc text-8xl text-zinc-800 opacity-20"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Detailed Biography Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyber-acid font-mono font-bold">BIOGRAFIA REAL</span>
+                    <h2 class="text-4xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-none uppercase">
+                        DO INTERIOR DE RONDÔNIA PARA O MUNDO UNDERGROUND.
+                    </h2>
+                    
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Nascido em <span class="text-white font-semibold">Pimenta Bueno</span>, no interior do estado de Rondônia, Douglas Silvestre desenvolveu um senso estético único que unifica o funk, a música eletrônica periférica e o minimalismo industrial. Sem recorrer a fórmulas prontas, ele conquistou mais de <span class="text-white font-semibold">20 milhões de reproduções</span> com apenas 20 anos de idade.
+                    </p>
+
+                    <blockquote class="border-l-4 border-cyber-acid pl-4 italic text-gray-300 font-medium">
+                        "Diretamente de Rondônia para São Paulo, d.silvestre redefine a estrutura do funk tradicional ao experimentar com texturas agressivas e composições cirúrgicas de grave."
+                    </blockquote>
+
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Em 2024, visando expandir suas fronteiras de colaboração e imersão artística, Douglas mudou-se permanentemente para São Paulo/SP. Desde então, ele tem participado ativamente das principais festas e coletivos da vanguarda eletrônica nacional, como a prestigiada <span class="text-white">Submundo 808</span>.
+                    </p>
+
+                    <!-- Real Badges -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-zinc-950 border border-zinc-900 rounded-xl flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-cyber-acid text-xl"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">100% Autônomo</p>
+                                <p class="text-[10px] text-gray-400">Criando seus próprios beats e texturas</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-zinc-950 border border-zinc-900 rounded-xl flex items-center space-x-3">
+                            <i class="fas fa-fire text-cyber-pink text-xl"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Destaque Internacional</p>
+                                <p class="text-[10px] text-gray-400">Menções no exterior pela estrutura vanguardista</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL PERFORMANCE DESTAQUES (NO FICTIONAL DATES) -->
+    <section id="sets" class="py-24 border-t border-zinc-900 bg-cyber-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyber-acid font-mono">HISTÓRICO REAL DE CABINE</span>
+                    <h2 class="text-4xl sm:text-5xl font-display font-extrabold text-white mt-2 uppercase">SETS & APRESENTAÇÕES DESTAQUE</h2>
+                    <p class="text-gray-400 mt-2 font-light">Cabines, sets gravados e marcos de performance reais onde d.silvestre apresentou sua bruxaria sonora.</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="bg-zinc-950 text-cyber-acid border border-zinc-800 px-4 py-2 rounded-lg text-xs font-mono">
+                        ESTÉTICA COMPROVADA
+                    </span>
+                </div>
+            </div>
+
+            <!-- List of events -->
+            <div class="space-y-4">
+                
+                <!-- Performance 1: Submundo 808 DJ Set -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-cyber-acid transition-colors duration-300">
+                    <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                        <div class="bg-zinc-900 border border-zinc-850 w-16 h-16 rounded-xl flex flex-col justify-center items-center">
+                            <span class="text-cyber-acid font-display font-extrabold text-xl"><i class="fab fa-youtube"></i></span>
+                            <span class="text-[9px] uppercase tracking-wider text-gray-500 font-mono">Gravado</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] bg-cyber-acid/15 text-cyber-acid border border-cyber-acid/30 px-3 py-0.5 rounded-full uppercase tracking-widest font-mono font-bold">Submundo 808 DJ Set</span>
+                            <h4 class="text-xl font-display font-extrabold text-white mt-1">DJ d.silvestre | Submundo 808 Session</h4>
+                            <p class="text-sm text-gray-400">Gravado ao vivo em São Paulo/SP (Destaque do Canal Oficial)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <a href="https://www.youtube.com/watch?v=QgGVn9VWBQ0" target="_blank" class="w-full md:w-auto px-6 py-3 bg-cyber-acid text-black text-xs font-extrabold rounded-full hover:bg-white transition-all duration-300 text-center uppercase tracking-wider">
+                            Assistir Set Oficial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Performance 2: Baronesa (CENAS) -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-cyber-pink transition-colors duration-300">
+                    <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                        <div class="bg-zinc-900 border border-zinc-850 w-16 h-16 rounded-xl flex flex-col justify-center items-center">
+                            <span class="text-cyber-pink font-display font-extrabold text-xl"><i class="fas fa-play"></i></span>
+                            <span class="text-[9px] uppercase tracking-wider text-gray-500 font-mono">Live</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] bg-cyber-pink/15 text-cyber-pink border border-cyber-pink/30 px-3 py-0.5 rounded-full uppercase tracking-widest font-mono font-bold">CENAS Session</span>
+                            <h4 class="text-xl font-display font-extrabold text-white mt-1">d.silvestre @ Baronesa | CENAS</h4>
+                            <p class="text-sm text-gray-400">Apresentação especial trazendo o fluxo de funk agressivo</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <a href="https://www.youtube.com/watch?v=bDkx8OcTRws" target="_blank" class="w-full md:w-auto px-6 py-3 bg-zinc-900 border border-zinc-800 text-white text-xs font-bold rounded-full hover:bg-zinc-800 transition-all duration-300 text-center uppercase">
+                            Visualizar Registro
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Performance 3: Rezenha dos DJs -->
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-cyber-neonBlue transition-colors duration-300">
+                    <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                        <div class="bg-zinc-900 border border-zinc-850 w-16 h-16 rounded-xl flex flex-col justify-center items-center">
+                            <span class="text-cyber-neonBlue font-display font-extrabold text-xl"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="text-[9px] uppercase tracking-wider text-gray-500 font-mono">Club</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] bg-cyber-neonBlue/15 text-cyber-neonBlue border border-cyber-neonBlue/30 px-3 py-0.5 rounded-full uppercase tracking-widest font-mono font-bold">Mogi Guaçu</span>
+                            <h4 class="text-xl font-display font-extrabold text-white mt-1">Rezenha dos DJs Convida: d.silvestre</h4>
+                            <p class="text-sm text-gray-400">Apresentação no histórico Profeta Pub, trazendo público alternativo de SP</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <span class="text-xs font-mono text-zinc-500">Histórico de Performance</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MURAL DO FLUXO (GUESTBOOK) -->
+    <section id="mural" class="py-24 border-t border-zinc-900 bg-cyber-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Form -->
+                <div class="lg:col-span-5 bg-zinc-950 border border-zinc-850 rounded-2xl p-6 sm:p-8 neon-glow-purple">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyber-acid font-mono">COMUNIDADE</span>
+                    <h3 class="text-3xl font-display font-extrabold text-white mt-1">MURAL DO FLUXO</h3>
+                    <p class="text-gray-400 text-sm mt-3 font-light leading-relaxed">
+                        Deixe o seu salve diretamente no painel oficial da comunidade d.silvestre. Compartilhe sua cidade, seu vulgo e apoie a cena de funk de desconstruído! Seu recado é salvo em tempo real.
+                    </p>
+
+                    <form id="comment-form" onsubmit="submitComment(event)" class="mt-8 space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-name">Nome ou Vulgo</label>
+                            <input type="text" id="form-name" required placeholder="Ex: DJ Blakes, Caio Prince ou Cria de SP" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-city">Sua Cidade / Estado</label>
+                            <input type="text" id="form-city" required placeholder="Ex: São Paulo - SP ou Pimenta Bueno - RO" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-zinc-500 uppercase tracking-widest mb-1.5" for="form-msg">Mensagem / Salve</label>
+                            <textarea id="form-msg" rows="3" required placeholder="Manda sua opinião sobre os beats do d.silvestre..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-700 focus:outline-none focus:border-cyber-acid text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyber-acid to-cyber-purple text-black font-extrabold rounded-full hover:scale-[1.02] transition-transform tracking-wider uppercase text-xs">
+                            ENVIAR NO MURAL
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right: Messages Container -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-lg font-display font-extrabold text-white flex items-center space-x-2 uppercase">
+                            <span class="w-2.5 h-2.5 rounded-full bg-cyber-pink animate-pulse"></span>
+                            <span>MENSAGENS DO UNDERGROUND</span>
+                        </h4>
+                        <button onclick="clearGuestbook()" class="text-xs font-mono text-zinc-500 hover:text-red-500 transition-colors">Limpar Histórico</button>
+                    </div>
+
+                    <!-- Scroll Container for comments -->
+                    <div id="mural-container" class="space-y-4 max-h-[480px] overflow-y-auto pr-2">
+                        <!-- Stored comments render here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-cyber-black border-t border-zinc-900/60 py-12 text-center text-sm text-zinc-500 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex justify-center space-x-6">
+                <a href="https://open.spotify.com/artist/3K2z7E28EovrYgQ4TOnj5J" target="_blank" class="text-zinc-400 hover:text-cyber-acid transition-colors text-2xl"><i class="fab fa-spotify"></i></a>
+                <a href="https://www.instagram.com/d.silvestre7/" target="_blank" class="text-zinc-400 hover:text-cyber-pink transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://soundcloud.com/douglas-silvestre-283592182" target="_blank" class="text-zinc-400 hover:text-orange-500 transition-colors text-2xl"><i class="fab fa-soundcloud"></i></a>
+            </div>
+            <div>
+                <p class="font-display font-black text-white text-lg tracking-wider uppercase">D.SILVESTRE</p>
+                <p class="text-xs text-zinc-600 mt-2 font-mono">© 2026 d.silvestre. Feito exclusivamente com dados e acervos reais do produtor.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL FOR VINYL SLEEVES / ALBUM DETAILS -->
+    <div id="album-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative neon-glow-purple">
+            <button onclick="closeAlbumModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <span class="text-xs font-mono text-cyber-acid uppercase tracking-widest font-bold">ENCARTE / TRACKLIST ORIGINAL</span>
+            <h3 id="modal-title" class="text-3xl font-display font-extrabold text-white mt-1 mb-6">Título do Álbum</h3>
+            
+            <div class="space-y-4">
+                <h4 class="text-xs font-mono text-zinc-500 uppercase tracking-widest">ALINHAMENTO DE FAIXAS ORIGINAIS</h4>
+                <div id="modal-tracks" class="space-y-2 max-h-48 overflow-y-auto pr-2">
+                    <!-- Dynamic Tracks List -->
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-zinc-900 flex justify-between items-center">
+                <p class="text-xs text-zinc-500 font-mono">Fiel ao acervo de d.silvestre</p>
+                <button onclick="closeAlbumModal()" class="px-6 py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold rounded-xl text-xs uppercase tracking-widest">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DYNAMIC SYSTEM POPUP -->
+    <div id="popup-box" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 bg-zinc-950 border-2 border-cyber-acid p-4 rounded-xl text-white shadow-2xl transition-all duration-300 max-w-sm">
+        <div class="flex items-start space-x-3">
+            <i class="fas fa-bullhorn text-cyber-acid text-lg mt-0.5"></i>
+            <div>
+                <h5 class="font-bold text-sm" id="popup-title">Aviso do Sistema</h5>
+                <p class="text-xs text-gray-400 mt-1" id="popup-message">Mensagem de aviso customizada.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
