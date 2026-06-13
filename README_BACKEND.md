@@ -7,13 +7,14 @@ homenagem d,silvestre/
 ├── index.html          # HTML principal
 ├── styles.css          # Estilos CSS
 ├── script.js           # JavaScript do frontend
-├── server.js           # Backend Node.js
+├── api/                # Serverless functions da Vercel
+│   └── mural.js        # API do mural
 ├── package.json        # Dependências do Node.js
 ├── .env                # Variáveis de ambiente (credenciais)
 └── .gitignore          # Protege arquivos sensíveis
 ```
 
-## 🚀 Como Configurar e Rodar
+## 🚀 Como Configurar
 
 ### 1. Preparar a Planilha Google Sheets
 
@@ -31,30 +32,13 @@ homenagem d,silvestre/
 1. No Google Cloud Console, adicione permissão de Editor para o email da sua service account
 2. O email está nas credenciais JSON (campo `client_email`)
 
-### 3. Instalar Dependências
+### 3. Configurar Variáveis de Ambiente na Vercel
 
-```bash
-npm install
-```
-
-### 4. Configurar Variáveis de Ambiente
-
-O arquivo `.env` deve conter:
-- `GOOGLE_SHEET_ID`: ID da sua planilha
-- `GOOGLE_SERVICE_ACCOUNT`: Credenciais JSON da service account
-- `PORT`: 3000 (opcional)
-
-### 5. Iniciar o Servidor
-
-```bash
-npm start
-```
-
-O servidor vai rodar em: `http://localhost:3000`
-
-### 6. Acessar o Site
-
-Abra no navegador: `http://localhost:3000`
+1. Acesse seu projeto na Vercel
+2. Vá em Settings > Environment Variables
+3. Adicione:
+   - `GOOGLE_SHEET_ID`: ID da sua planilha
+   - `GOOGLE_SERVICE_ACCOUNT`: Credenciais JSON (com `\n` para quebras de linha)
 
 ## 🔐 Segurança
 
